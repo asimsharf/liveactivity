@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "97263147465",
+    "project_id": "theecco-app",
+    "storage_bucket": "theecco-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97263147465:android:e9303578f6a12d5bff7018",
+        "android_client_info": {
+          "package_name": "com.example.liveactivity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4T9HXy2At96fmRV9E-_VtUIXtm_-iviE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97263147465:android:802d4cd9f375c548ff7018",
+        "android_client_info": {
+          "package_name": "com.sudagoarth.theeco"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4T9HXy2At96fmRV9E-_VtUIXtm_-iviE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
