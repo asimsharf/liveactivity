@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
@@ -15,6 +17,7 @@ class PollController extends GetxController {
     super.onInit();
     fetchPolls();
     configureFCM();
+    requestNotificationPermissions();
   }
 
   void configureFCM() {
@@ -104,5 +107,20 @@ class PollController extends GetxController {
     FirebaseMessaging.instance.getAPNSToken().then((token) {
       // Send the APNs token to your backend if needed
     });
+  }
+
+  Future<void> requestLocalNetworkPermission() async {
+    try {
+      final socket = await Socket.connect(
+        'localhost',
+        80,
+        timeout: const Duration(seconds: 2),
+      );
+      socket.destroy();
+    } catch (e) {
+      if (kDebugMode) {
+        print("Triggered local network permission request: $e");
+      }
+    }
   }
 }

@@ -31,12 +31,33 @@ class PollScreen extends GetView<PollController> {
             child: CircularProgressIndicator(),
           );
         }
-        return ListView.builder(
-          itemCount: controller.polls.length,
-          itemBuilder: (context, index) {
-            final poll = controller.polls[index];
-            return PollWidget(poll: poll);
-          },
+        return Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                controller.requestLocalNetworkPermission();
+              },
+              child: const Text('Request Notification Permissions'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                controller.createVote(
+                  'What is your favorite programming language?',
+                  ['Dart', 'Kotlin', 'Swift', 'Java'],
+                );
+              },
+              child: const Text('Create Poll'),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: controller.polls.length,
+                itemBuilder: (context, index) {
+                  final poll = controller.polls[index];
+                  return PollWidget(poll: poll);
+                },
+              ),
+            ),
+          ],
         );
       }),
     );
