@@ -15,7 +15,7 @@ import UserNotifications
         GeneratedPluginRegistrant.register(with: self)
         
         // Set up notification center delegate
-        UNUserNotificationCenter.current().delegate = self // No need to declare UNUserNotificationCenterDelegate again
+        UNUserNotificationCenter.current().delegate = self
         requestNotificationPermissions()
         
         // Set up Flutter MethodChannel for communication
@@ -56,7 +56,8 @@ import UserNotifications
     
     // Request notification permissions
     private func requestNotificationPermissions() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: options) { granted, error in
             if granted {
                 print("Notification permissions granted")
             } else {
@@ -71,6 +72,13 @@ import UserNotifications
         content.title = question
         content.body = formatOptions(options: options, votes: votes)
         content.sound = .default
+        content.categoryIdentifier = "pollUpdateCategory" // For lock screen display
+
+        // Set interruptionLevel and relevanceScore if available on iOS 15+
+        if #available(iOS 15.0, *) {
+            content.interruptionLevel = .timeSensitive
+            content.relevanceScore = 1.0
+        }
         
         // Trigger the notification immediately
         let request = UNNotificationRequest(identifier: "pollUpdate", content: content, trigger: nil)
@@ -83,8 +91,15 @@ import UserNotifications
         content.title = question
         content.body = "Updated votes: \(votes)"
         content.sound = .default
+        content.categoryIdentifier = "pollUpdateCategory"
         
-        // Trigger the updated notification immediately
+        // Set interruptionLevel and relevanceScore if available on iOS 15+
+        if #available(iOS 15.0, *) {
+            content.interruptionLevel = .timeSensitive
+            content.relevanceScore = 1.0
+        }
+        
+        // Schedule a notification update
         let request = UNNotificationRequest(identifier: "pollUpdate", content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
