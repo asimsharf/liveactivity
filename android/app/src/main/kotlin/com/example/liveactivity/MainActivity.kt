@@ -20,18 +20,18 @@ class MainActivity : FlutterActivity() {
                     val options = call.argument<List<String>>("options") ?: listOf()
                     val votes = call.argument<List<Int>>("votes") ?: listOf()
                     startPollService(question, options, votes)
-                    result.success(null)
+                    result.success("success")
                 }
                 "updateService" -> {
                     val question = call.argument<String>("question") ?: ""
                     val options = call.argument<List<String>>("options") ?: listOf()
                     val votes = call.argument<List<Int>>("votes") ?: listOf()
                     updatePollService(question, options, votes)
-                    result.success(null)
+                    result.success("success")
                 }
                 "stopService" -> {
                     stopPollService()
-                    result.success(null)
+                    result.success("success")
                 }
                 else -> result.notImplemented()
             }
