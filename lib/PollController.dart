@@ -36,8 +36,16 @@ class PollController extends GetxController {
 
   void fetchPolls() {
     try {
+      PollService.startLiveActivity(
+          "What's your favorite programming language?",
+          ["Dart", "Swift", "Kotlin"],
+          [0, 0, 0]);
+
       FirebaseFirestore.instance.collection('polls').snapshots().listen(
         (snapshot) {
+          PollService.updateLiveActivity(
+              "What's your favorite programming language?", [10, 5, 15]);
+
           polls.value = snapshot.docs.map(
             (doc) {
               return Poll.fromDocument(doc);
@@ -54,6 +62,11 @@ class PollController extends GetxController {
                 (pollData['votes'] as List).map((item) => item as int));
 
             PollService.startService(question, options, votes);
+
+            PollService.startLiveActivity(question, options, votes);
+
+            PollService.updateLiveActivity(
+                "What's your favorite programming language?", [10, 5, 15]);
           }
         },
       );
@@ -123,4 +136,6 @@ class PollController extends GetxController {
       }
     }
   }
+
+  void startLiveActivity() async {}
 }

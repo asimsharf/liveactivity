@@ -1,6 +1,17 @@
 import Flutter
 import UIKit
 import UserNotifications
+import ActivityKit
+
+struct PollAttributes: ActivityAttributes {
+    public struct ContentState: Codable, Hashable {
+        var question: String
+        var votes: [Int]
+        var options: [String]
+    }
+    
+    var question: String
+}
 
 @main
 @objc class AppDelegate: FlutterAppDelegate {
@@ -31,7 +42,7 @@ import UserNotifications
                        let votes = args["votes"] as? [Int] {
                         self?.startLiveActivity(question: question, options: options, votes: votes)
                     }
-                    result(nil)
+                    result("success")
                     
                 case "updateService":
                     if let args = call.arguments as? [String: Any],
@@ -39,11 +50,30 @@ import UserNotifications
                        let votes = args["votes"] as? [Int] {
                         self?.updateLiveActivity(question: question, votes: votes)
                     }
-                    result(nil)
+                    result("success")
                     
                 case "stopService":
                     self?.stopLiveActivity()
                     result(nil)
+
+                case "startLiveActivity":
+                         if let args = call.arguments as? [String: Any],
+                                           let question = args["question"] as? String,
+                                           let options = args["options"] as? [String],
+                                           let votes = args["votes"] as? [Int] {
+                                            self?.startLiveActivity(question: question, options: options, votes: votes)
+                                        }
+                    result("success")
+                case "updateLiveActivity":
+                             if let args = call.arguments as? [String: Any],
+                                           let question = args["question"] as? String,
+                                           let votes = args["votes"] as? [Int] {
+                                            self?.updateLiveActivity(question: question, votes: votes)
+                                        }
+                    result("success")
+                case "stopLiveActivity":
+                                self?.stopLiveActivity()
+                                        result("success")
                     
                 default:
                     result(FlutterMethodNotImplemented)
@@ -80,6 +110,24 @@ import UserNotifications
             content.relevanceScore = 1.0
         }
         
+        if #available(iOS 16.1, *) {
+            let initialContentState = PollAttributes.ContentState(question: question, votes: votes, options: options)
+            let activityAttributes = PollAttributes(question: question)
+            
+            do {
+                let activity = try Activity<PollAttributes>.request(
+                    attributes: activityAttributes,
+                    contentState: initialContentState,
+                    pushType: nil)
+                
+                print("Started Live Activity: \(activity.id)")
+            } catch (let error) {
+                print("Error starting Live Activity: \(error.localizedDescription)")
+            }
+        } else {
+            print("Live Activities are not available on this iOS version.")
+        }
+        
         // Trigger the notification immediately
         let request = UNNotificationRequest(identifier: "pollUpdate", content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
@@ -99,6 +147,17 @@ import UserNotifications
             content.relevanceScore = 1.0
         }
         
+        if #available(iOS 16.1, *) {
+            for activity in Activity<PollAttributes>.activities {
+                var updatedContent = activity.contentState
+                updatedContent.votes = votes
+                
+                Task {
+                    await activity.update(using: updatedContent)
+                }
+            }
+        }
+        
         // Schedule a notification update
         let request = UNNotificationRequest(identifier: "pollUpdate", content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
@@ -106,6 +165,15 @@ import UserNotifications
     
     // Stop live activity (removes the notification)
     private func stopLiveActivity() {
+        
+        if #available(iOS 16.1, *) {
+            for activity in Activity<PollAttributes>.activities {
+                Task {
+                    await activity.end(dismissalPolicy: .immediate)
+                }
+            }
+        }
+        
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["pollUpdate"])
     }
     
