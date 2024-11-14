@@ -25,17 +25,19 @@ class PollService {
     String question,
     List<int> votes,
   ) async {
-    await _channel.invokeMethod(
+    final result = await _channel.invokeMethod(
       'updateLiveActivity',
       {
         'question': question,
         'votes': votes,
       },
     );
+    print(result);
   }
 
   static Future<void> stopLiveActivity() async {
-    await _channel.invokeMethod('stopLiveActivity');
+    final result = await _channel.invokeMethod('stopLiveActivity');
+    print(result);
   }
 
   static Future<void> startService(
@@ -44,7 +46,7 @@ class PollService {
     List<int> votes,
   ) async {
     try {
-      await _channel.invokeMethod(
+      final result = await _channel.invokeMethod(
         'startService',
         {
           'question': question,
@@ -52,6 +54,7 @@ class PollService {
           'votes': votes,
         },
       );
+      print(result);
     } catch (e) {
       if (kDebugMode) {
         print("Error starting service: $e");
@@ -64,13 +67,14 @@ class PollService {
     List<int> votes,
   ) async {
     try {
-      await _channel.invokeMethod(
+      final result = await _channel.invokeMethod(
         'updateService',
         {
           'question': question,
           'votes': votes,
         },
       );
+      print(result);
     } catch (e) {
       if (kDebugMode) {
         print("Error updating service: $e");
@@ -80,7 +84,8 @@ class PollService {
 
   static Future<void> stopService() async {
     try {
-      await _channel.invokeMethod('stopService');
+      final result = await _channel.invokeMethod('stopService');
+      print(result);
     } catch (e) {
       if (kDebugMode) {
         print("Error stopping service: $e");
