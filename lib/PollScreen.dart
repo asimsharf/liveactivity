@@ -9,6 +9,7 @@ class PollScreen extends GetView<PollController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(PollController());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Live Polls'),
@@ -44,7 +45,7 @@ class PollScreen extends GetView<PollController> {
 
 class PollWidget extends GetView<PollController> {
   final Poll poll;
-   const PollWidget({super.key, required this.poll});
+  const PollWidget({super.key, required this.poll});
 
   @override
   Widget build(BuildContext context) {

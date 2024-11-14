@@ -3,7 +3,7 @@ import UIKit
 import UserNotifications
 
 @main
-@objc class AppDelegate: FlutterAppDelegate, UNUserNotificationCenterDelegate {
+@objc class AppDelegate: FlutterAppDelegate {
     
     private let channelName = "com.example.liveactivity/pollService"
 
@@ -15,7 +15,7 @@ import UserNotifications
         GeneratedPluginRegistrant.register(with: self)
         
         // Set up notification center delegate
-        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().delegate = self // No need to declare UNUserNotificationCenterDelegate again
         requestNotificationPermissions()
         
         // Set up Flutter MethodChannel for communication
