@@ -1,9 +1,11 @@
-// WorkoutServiceHelper.kt
-
-package com.example.liveactivity
+package com.example.liveactivity.helpers
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
+import com.example.liveactivity.services.WorkoutForegroundService
+import kotlin.apply
+import kotlin.jvm.java
 
 object WorkoutServiceHelper {
     fun startWorkoutService(context: Context, workoutType: String, heartRate: Int, steps: Int, calories: Int, elapsedTime: Int) {
@@ -14,7 +16,7 @@ object WorkoutServiceHelper {
             putExtra("calories", calories)
             putExtra("elapsedTime", elapsedTime)
         }
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(serviceIntent)
         } else {
             context.startService(serviceIntent)

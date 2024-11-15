@@ -1,6 +1,4 @@
-// WorkoutForegroundService.kt
-
-package com.example.liveactivity
+package com.example.liveactivity.services
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -12,6 +10,9 @@ import android.os.Build
 import android.os.IBinder
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
+import com.example.liveactivity.R
+import kotlin.apply
+import kotlin.jvm.java
 
 class WorkoutForegroundService : Service() {
 

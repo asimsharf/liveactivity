@@ -4,6 +4,8 @@ package com.example.liveactivity
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.example.liveactivity.handlers.PollChannelHandler
+import com.example.liveactivity.handlers.WorkoutChannelHandler
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 

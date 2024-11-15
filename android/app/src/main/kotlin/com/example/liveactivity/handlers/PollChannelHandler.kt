@@ -1,8 +1,7 @@
-// PollChannelHandler.kt
-
-package com.example.liveactivity
+package com.example.liveactivity.handlers
 
 import android.content.Context
+import com.example.liveactivity.helpers.PollServiceHelper
 import io.flutter.embedding.engine.dart.DartExecutor
 import io.flutter.plugin.common.MethodChannel
 
