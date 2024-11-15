@@ -35,6 +35,18 @@ class PollScreen extends GetView<PollController> {
           children: [
             ElevatedButton(
               onPressed: () {
+                controller.startTimer();
+              },
+              child: const Text('Start Timer'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                controller.stopTimer();
+              },
+              child: const Text('Stop Timer'),
+            ),
+            ElevatedButton(
+              onPressed: () {
                 controller.startWorkout('Running', '5K');
               },
               child: const Text('Start Workout'),

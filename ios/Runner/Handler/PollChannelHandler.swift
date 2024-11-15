@@ -23,7 +23,7 @@ class PollChannelHandler {
                    let question = args["question"] as? String,
                    let options = args["options"] as? [String],
                    let votes = args["votes"] as? [Int] {
-                    LiveActivityService.startLiveActivity(question: question, options: options, votes: votes)
+                    PollActivityService.startLiveActivity(question: question, options: options, votes: votes)
                     let contentBody = NotificationService.formatOptions(options: options, votes: votes)
                     let content = NotificationService.createNotificationContent(title: question, body: contentBody)
                     NotificationService.displayNotification(content: content)
@@ -36,7 +36,7 @@ class PollChannelHandler {
                 if let args = call.arguments as? [String: Any],
                    let question = args["question"] as? String,
                    let votes = args["votes"] as? [Int] {
-                    LiveActivityService.updateLiveActivity(question: question, votes: votes)
+                    PollActivityService.updateLiveActivity(question: question, votes: votes)
                     let content = NotificationService.createNotificationContent(title: question, body: "Updated votes: \(votes)")
                     NotificationService.displayNotification(content: content)
                     result("Poll updated")
@@ -45,7 +45,7 @@ class PollChannelHandler {
                 }
                 
             case "stopService":
-                LiveActivityService.stopLiveActivity()
+                PollActivityService.stopLiveActivity()
                 UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["pollUpdate"])
                 result("Poll stopped")
                 

@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:liveactivity/TimerService.dart';
 import 'package:liveactivity/WorkOutService.dart';
 
 import 'Poll.dart';
@@ -150,5 +151,13 @@ class PollController extends GetxController {
   void stopWorkout() {
     // Stop workout
     WorkoutService.stopWorkout();
+  }
+
+  void startTimer() {
+    TimerService.startCountdownTimer(300); // 5-minute timer
+  }
+
+  void stopTimer() {
+    TimerService.stopAllActivities();
   }
 }

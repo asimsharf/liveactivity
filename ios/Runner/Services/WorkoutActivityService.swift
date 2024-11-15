@@ -9,7 +9,7 @@
 
 import ActivityKit
 
-class WorkoutLiveActivityService {
+class WorkoutActivityService {
     
     // Start workout Live Activity
     static func startWorkoutActivity(workoutType: String, goal: String) {

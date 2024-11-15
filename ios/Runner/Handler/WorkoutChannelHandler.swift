@@ -21,7 +21,7 @@ class WorkoutChannelHandler {
                 if let args = call.arguments as? [String: Any],
                    let workoutType = args["workoutType"] as? String,
                    let goal = args["goal"] as? String {
-                    WorkoutLiveActivityService.startWorkoutActivity(workoutType: workoutType, goal: goal)
+                    WorkoutActivityService.startWorkoutActivity(workoutType: workoutType, goal: goal)
                     result("Workout started")
                 } else {
                     result(FlutterError(code: "INVALID_ARGUMENTS", message: "Invalid arguments for startWorkout", details: nil))
@@ -34,7 +34,7 @@ class WorkoutChannelHandler {
                    let caloriesBurned = args["caloriesBurned"] as? Int,
                    let elapsedTime = args["elapsedTime"] as? TimeInterval,
                    let goalProgress = args["goalProgress"] as? Double {
-                    WorkoutLiveActivityService.updateWorkoutActivity(
+                    WorkoutActivityService.updateWorkoutActivity(
                         heartRate: heartRate,
                         steps: steps,
                         caloriesBurned: caloriesBurned,
@@ -47,7 +47,7 @@ class WorkoutChannelHandler {
                 }
                 
             case "stopWorkout":
-                WorkoutLiveActivityService.stopWorkoutActivity()
+                WorkoutActivityService.stopWorkoutActivity()
                 result("Workout stopped")
                 
             default:

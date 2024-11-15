@@ -22,6 +22,8 @@ import UserNotifications
         if let controller = window?.rootViewController as? FlutterViewController {
             WorkoutChannelHandler.setUpChannel(with: controller)
             PollChannelHandler.setUpChannel(with: controller)
+            TimerChannelHandler.setUpChannel(with: controller)
+
         }
         
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
