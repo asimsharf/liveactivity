@@ -6,21 +6,22 @@
 //
 
 // PollActivityService.swift
+// PollActivityService.swift
 
 import ActivityKit
 
 class PollActivityService {
     static let shared = PollActivityService()  // Singleton instance
 
-    // Make the initializer private to prevent accidental instances
+    // Make the initializer private to enforce singleton usage
     private init() {}
 
-    // Start a poll Live Activity with a countdown timer
-    func startPollActivity(question: String, durationInSeconds: TimeInterval) {
+    // Start a poll Live Activity with options and votes
+    func startPollActivity(question: String, options: [String], votes: [Int]) {
         if #available(iOS 16.1, *) {
-            let endTime = Date().addingTimeInterval(durationInSeconds)
+            let endTime = Date().addingTimeInterval(60 * 5) // Example: 5-minute countdown
             let attributes = PollAttributes(pollName: "Live Poll")
-            let initialContentState = PollAttributes.ContentState(question: question, endTime: endTime)
+            let initialContentState = PollAttributes.ContentState(question: question, options: options, votes: votes, endTime: endTime)
 
             do {
                 let activity = try Activity<PollAttributes>.request(
@@ -32,17 +33,16 @@ class PollActivityService {
             } catch {
                 print("Failed to start Poll Live Activity: \(error)")
             }
-        } else {
-            print("Live Activities are not available on this iOS version.")
         }
     }
 
-    // Update an active poll Live Activity with new data
-    func updatePollActivity(question: String) {
+    // Update the poll Live Activity with new votes
+    func updatePollActivity(question: String, votes: [Int]) {
         if #available(iOS 16.1, *) {
             for activity in Activity<PollAttributes>.activities {
                 var updatedContent = activity.contentState
-                updatedContent.question = question // Update the poll question or other state info as needed
+                updatedContent.question = question
+                updatedContent.votes = votes // Update with new votes
 
                 Task {
                     await activity.update(using: updatedContent)

@@ -7,13 +7,17 @@
 
 // PollAttributes.swift
 
+// PollAttributes.swift
+
 import ActivityKit
 
 struct PollAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
-        var question: String       // Poll question
-        var endTime: Date          // End time for the poll countdown
+        var question: String
+        var options: [String]
+        var votes: [Int]
+        var endTime: Date
     }
     
-    var pollName: String          // Poll name or description
+    var pollName: String
 }
