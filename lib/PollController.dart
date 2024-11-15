@@ -158,6 +158,6 @@ class PollController extends GetxController {
   }
 
   void stopTimer() {
-    TimerService.stopAllActivities();
+    TimerService.stopCountdownTimer();
   }
 }
