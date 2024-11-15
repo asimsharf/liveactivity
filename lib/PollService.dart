@@ -5,41 +5,6 @@ class PollService {
   static const MethodChannel _channel =
       MethodChannel('com.example.liveactivity/pollService');
 
-  static Future<void> startLiveActivity(
-    String question,
-    List<String> options,
-    List<int> votes,
-  ) async {
-    final result = await _channel.invokeMethod(
-      'startLiveActivity',
-      {
-        'question': question,
-        'options': options,
-        'votes': votes,
-      },
-    );
-    print(result);
-  }
-
-  static Future<void> updateLiveActivity(
-    String question,
-    List<int> votes,
-  ) async {
-    final result = await _channel.invokeMethod(
-      'updateLiveActivity',
-      {
-        'question': question,
-        'votes': votes,
-      },
-    );
-    print(result);
-  }
-
-  static Future<void> stopLiveActivity() async {
-    final result = await _channel.invokeMethod('stopLiveActivity');
-    print(result);
-  }
-
   static Future<void> startService(
     String question,
     List<String> options,

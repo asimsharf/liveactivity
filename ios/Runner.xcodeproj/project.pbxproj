@@ -16,6 +16,13 @@
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		B08D304D13F7BAAAA0596F0D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E3F617BAC965849916A52C3 /* GoogleService-Info.plist */; };
 		C25BE2EF6E7D77F3ABC16E95 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D3E5B9F764D98911F9F396 /* Pods_Runner.framework */; };
+		C64249DC2CE727F100FA36CB /* PollAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249DB2CE727EF00FA36CB /* PollAttributes.swift */; };
+		C64249DE2CE7280300FA36CB /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249DD2CE7280300FA36CB /* NotificationService.swift */; };
+		C64249E02CE7281500FA36CB /* LiveActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249DF2CE7281300FA36CB /* LiveActivityService.swift */; };
+		C64249E22CE7287A00FA36CB /* WorkoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249E12CE7287900FA36CB /* WorkoutAttributes.swift */; };
+		C64249E42CE7288A00FA36CB /* WorkoutLiveActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249E32CE7288900FA36CB /* WorkoutLiveActivityService.swift */; };
+		C64249E62CE729A500FA36CB /* WorkoutChannelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249E52CE729A400FA36CB /* WorkoutChannelHandler.swift */; };
+		C64249E82CE729B500FA36CB /* PollChannelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249E72CE729B400FA36CB /* PollChannelHandler.swift */; };
 		C7171C52A3228F9A9CD1AE9F /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E166AEE8D29A6F80B7AB65 /* Pods_RunnerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +72,13 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C64249DB2CE727EF00FA36CB /* PollAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAttributes.swift; sourceTree = "<group>"; };
+		C64249DD2CE7280300FA36CB /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		C64249DF2CE7281300FA36CB /* LiveActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityService.swift; sourceTree = "<group>"; };
+		C64249E12CE7287900FA36CB /* WorkoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAttributes.swift; sourceTree = "<group>"; };
+		C64249E32CE7288900FA36CB /* WorkoutLiveActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLiveActivityService.swift; sourceTree = "<group>"; };
+		C64249E52CE729A400FA36CB /* WorkoutChannelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutChannelHandler.swift; sourceTree = "<group>"; };
+		C64249E72CE729B400FA36CB /* PollChannelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollChannelHandler.swift; sourceTree = "<group>"; };
 		E706AD194951B01C94768BC6 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0D3E5B9F764D98911F9F396 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -146,6 +160,13 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				C64249E72CE729B400FA36CB /* PollChannelHandler.swift */,
+				C64249E52CE729A400FA36CB /* WorkoutChannelHandler.swift */,
+				C64249E32CE7288900FA36CB /* WorkoutLiveActivityService.swift */,
+				C64249E12CE7287900FA36CB /* WorkoutAttributes.swift */,
+				C64249DF2CE7281300FA36CB /* LiveActivityService.swift */,
+				C64249DD2CE7280300FA36CB /* NotificationService.swift */,
+				C64249DB2CE727EF00FA36CB /* PollAttributes.swift */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -398,8 +419,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C64249E62CE729A500FA36CB /* WorkoutChannelHandler.swift in Sources */,
+				C64249DE2CE7280300FA36CB /* NotificationService.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
+				C64249E22CE7287A00FA36CB /* WorkoutAttributes.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				C64249E02CE7281500FA36CB /* LiveActivityService.swift in Sources */,
+				C64249E42CE7288A00FA36CB /* WorkoutLiveActivityService.swift in Sources */,
+				C64249E82CE729B500FA36CB /* PollChannelHandler.swift in Sources */,
+				C64249DC2CE727F100FA36CB /* PollAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

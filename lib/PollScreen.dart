@@ -35,9 +35,27 @@ class PollScreen extends GetView<PollController> {
           children: [
             ElevatedButton(
               onPressed: () {
-                controller.requestLocalNetworkPermission();
+                controller.startWorkout('Running', '5K');
               },
-              child: const Text('Request Notification Permissions'),
+              child: const Text('Start Workout'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                controller.stopWorkout();
+              },
+              child: const Text('Stop Workout'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                controller.updateWorkout(
+                  120,
+                  5000,
+                  300,
+                  30.0,
+                  0.6,
+                );
+              },
+              child: const Text('Update Workout'),
             ),
             ElevatedButton(
               onPressed: () {

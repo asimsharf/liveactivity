@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:liveactivity/WorkOutService.dart';
 
 import 'Poll.dart';
 import 'PollService.dart';
@@ -36,16 +37,8 @@ class PollController extends GetxController {
 
   void fetchPolls() {
     try {
-      PollService.startLiveActivity(
-          "What's your favorite programming language?",
-          ["Dart", "Swift", "Kotlin"],
-          [0, 0, 0]);
-
       FirebaseFirestore.instance.collection('polls').snapshots().listen(
         (snapshot) {
-          PollService.updateLiveActivity(
-              "What's your favorite programming language?", [10, 5, 15]);
-
           polls.value = snapshot.docs.map(
             (doc) {
               return Poll.fromDocument(doc);
@@ -62,11 +55,6 @@ class PollController extends GetxController {
                 (pollData['votes'] as List).map((item) => item as int));
 
             PollService.startService(question, options, votes);
-
-            PollService.startLiveActivity(question, options, votes);
-
-            PollService.updateLiveActivity(
-                "What's your favorite programming language?", [10, 5, 15]);
           }
         },
       );
@@ -137,5 +125,30 @@ class PollController extends GetxController {
     }
   }
 
-  void startLiveActivity() async {}
+  void startWorkout(String workoutType, String goal) {
+    // Start workout Live Activity
+    WorkoutService.startWorkout(workoutType, goal);
+  }
+
+  void updateWorkout(
+    int heartRate,
+    int steps,
+    int caloriesBurned,
+    double elapsedTime,
+    double goalProgress,
+  ) {
+    // Update workout metrics
+    WorkoutService.updateWorkout(
+      heartRate,
+      steps,
+      caloriesBurned,
+      elapsedTime,
+      goalProgress,
+    );
+  }
+
+  void stopWorkout() {
+    // Stop workout
+    WorkoutService.stopWorkout();
+  }
 }
