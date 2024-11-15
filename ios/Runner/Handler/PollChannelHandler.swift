@@ -4,7 +4,6 @@
 //
 //  Created by asimsharf on 15/11/2024.
 //
-// PollChannelHandler.swift
 
 import Flutter
 import ActivityKit

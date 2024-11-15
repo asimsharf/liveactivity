@@ -5,9 +5,6 @@
 //  Created by asimsharf on 15/11/2024.
 //
 
-// PollActivityService.swift
-// PollActivityService.swift
-
 import ActivityKit
 
 class PollActivityService {

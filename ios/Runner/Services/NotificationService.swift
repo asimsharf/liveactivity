@@ -4,9 +4,6 @@
 //
 //  Created by asimsharf on 15/11/2024.
 //
-
-// NotificationService.swift
-
 import UserNotifications
 
 class NotificationService {
@@ -39,10 +36,18 @@ class NotificationService {
         return content
     }
     
-    // Display the notification
-    static func displayNotification(content: UNMutableNotificationContent) {
-        let request = UNNotificationRequest(identifier: "pollUpdate", content: content, trigger: nil)
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    // Display the notification with optional delay
+    static func displayNotification(content: UNMutableNotificationContent, delayInSeconds: TimeInterval = 0) {
+        let trigger: UNNotificationTrigger? = delayInSeconds > 0 ? UNTimeIntervalNotificationTrigger(timeInterval: delayInSeconds, repeats: false) : nil
+        let request = UNNotificationRequest(identifier: "pollUpdate", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Failed to display notification: \(error)")
+            } else {
+                print("Notification displayed successfully.")
+            }
+        }
     }
     
     // Format the options and votes for display in the notification body

@@ -5,10 +5,6 @@
 //  Created by asimsharf on 15/11/2024.
 //
 
-// PollAttributes.swift
-
-// PollAttributes.swift
-
 import ActivityKit
 
 struct PollAttributes: ActivityAttributes {

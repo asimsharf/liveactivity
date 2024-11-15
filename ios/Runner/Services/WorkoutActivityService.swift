@@ -5,8 +5,6 @@
 //  Created by asimsharf on 15/11/2024.
 //
 
-// WorkoutLiveActivityService.swift
-
 import ActivityKit
 
 class WorkoutActivityService {

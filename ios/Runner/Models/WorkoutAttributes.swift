@@ -5,8 +5,6 @@
 //  Created by asimsharf on 15/11/2024.
 //
 
-// WorkoutAttributes.swift
-
 import ActivityKit
 
 struct WorkoutAttributes: ActivityAttributes {

@@ -25,11 +25,7 @@
 		C64249E82CE729B500FA36CB /* PollChannelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249E72CE729B400FA36CB /* PollChannelHandler.swift */; };
 		C64249EA2CE73AA500FA36CB /* TimerAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249E92CE73AA400FA36CB /* TimerAttributes.swift */; };
 		C64249F62CE73BFC00FA36CB /* TimerActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249F52CE73BFB00FA36CB /* TimerActivityService.swift */; };
-		C64249F82CE73C4E00FA36CB /* TimerChannelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249F72CE73C4C00FA36CB /* TimerChannelHandler.swift */; };
-		C64249FD2CE7409800FA36CB /* WorkoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249FC2CE7409600FA36CB /* WorkoutAttributes.swift */; };
-		C64249FF2CE740B200FA36CB /* PollActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249FE2CE740B000FA36CB /* PollActivityService.swift */; };
 		C6424A012CE7417C00FA36CB /* PollAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6424A002CE7417B00FA36CB /* PollAttributes.swift */; };
-		C6424A032CE741B900FA36CB /* TimerActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6424A022CE741B800FA36CB /* TimerActivityService.swift */; };
 		C6424A052CE741E400FA36CB /* TimerChannelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6424A042CE741E300FA36CB /* TimerChannelHandler.swift */; };
 		C7171C52A3228F9A9CD1AE9F /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E166AEE8D29A6F80B7AB65 /* Pods_RunnerTests.framework */; };
 /* End PBXBuildFile section */
@@ -89,11 +85,7 @@
 		C64249E72CE729B400FA36CB /* PollChannelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollChannelHandler.swift; sourceTree = "<group>"; };
 		C64249E92CE73AA400FA36CB /* TimerAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerAttributes.swift; sourceTree = "<group>"; };
 		C64249F52CE73BFB00FA36CB /* TimerActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerActivityService.swift; sourceTree = "<group>"; };
-		C64249F72CE73C4C00FA36CB /* TimerChannelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerChannelHandler.swift; sourceTree = "<group>"; };
-		C64249FC2CE7409600FA36CB /* WorkoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAttributes.swift; sourceTree = "<group>"; };
-		C64249FE2CE740B000FA36CB /* PollActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollActivityService.swift; sourceTree = "<group>"; };
 		C6424A002CE7417B00FA36CB /* PollAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAttributes.swift; sourceTree = "<group>"; };
-		C6424A022CE741B800FA36CB /* TimerActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerActivityService.swift; sourceTree = "<group>"; };
 		C6424A042CE741E300FA36CB /* TimerChannelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerChannelHandler.swift; sourceTree = "<group>"; };
 		E706AD194951B01C94768BC6 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0D3E5B9F764D98911F9F396 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				C6424A002CE7417B00FA36CB /* PollAttributes.swift */,
-				C64249FC2CE7409600FA36CB /* WorkoutAttributes.swift */,
 				C64249E12CE7287900FA36CB /* WorkoutAttributes.swift */,
 				C64249DB2CE727EF00FA36CB /* PollAttributes.swift */,
 				C64249E92CE73AA400FA36CB /* TimerAttributes.swift */,
@@ -207,7 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				C6424A042CE741E300FA36CB /* TimerChannelHandler.swift */,
-				C64249F72CE73C4C00FA36CB /* TimerChannelHandler.swift */,
 				C64249E72CE729B400FA36CB /* PollChannelHandler.swift */,
 				C64249E52CE729A400FA36CB /* WorkoutChannelHandler.swift */,
 			);
@@ -217,8 +207,6 @@
 		C64249FB2CE73F0A00FA36CB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C6424A022CE741B800FA36CB /* TimerActivityService.swift */,
-				C64249FE2CE740B000FA36CB /* PollActivityService.swift */,
 				C64249F52CE73BFB00FA36CB /* TimerActivityService.swift */,
 				C64249E32CE7288900FA36CB /* WorkoutActivityService.swift */,
 				C64249DF2CE7281300FA36CB /* PollActivityService.swift */,
@@ -467,14 +455,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C64249F82CE73C4E00FA36CB /* TimerChannelHandler.swift in Sources */,
 				C64249E62CE729A500FA36CB /* WorkoutChannelHandler.swift in Sources */,
 				C64249DE2CE7280300FA36CB /* NotificationService.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
-				C6424A032CE741B900FA36CB /* TimerActivityService.swift in Sources */,
 				C64249E22CE7287A00FA36CB /* WorkoutAttributes.swift in Sources */,
 				C6424A012CE7417C00FA36CB /* PollAttributes.swift in Sources */,
-				C64249FF2CE740B200FA36CB /* PollActivityService.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
 				C64249E02CE7281500FA36CB /* PollActivityService.swift in Sources */,
 				C64249F62CE73BFC00FA36CB /* TimerActivityService.swift in Sources */,
@@ -482,7 +467,6 @@
 				C6424A052CE741E400FA36CB /* TimerChannelHandler.swift in Sources */,
 				C64249E82CE729B500FA36CB /* PollChannelHandler.swift in Sources */,
 				C64249EA2CE73AA500FA36CB /* TimerAttributes.swift in Sources */,
-				C64249FD2CE7409800FA36CB /* WorkoutAttributes.swift in Sources */,
 				C64249DC2CE727F100FA36CB /* PollAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
