@@ -15,6 +15,7 @@ object TimerServiceHelper {
         // Use startForegroundService on API 26+, otherwise use startService
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intent)
+            context.startService(intent)
         } else {
             context.startService(intent)
         }

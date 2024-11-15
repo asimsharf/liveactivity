@@ -42,7 +42,13 @@ class WorkoutForegroundService : Service() {
         val calories = intent?.getIntExtra("calories", 0) ?: 0
         val elapsedTime = intent?.getIntExtra("elapsedTime", 0) ?: 0
 
-        startForeground(NOTIFICATION_ID, buildNotification(workoutType, formatWorkoutData(heartRate, steps, calories, elapsedTime)))
+        startForeground(
+            NOTIFICATION_ID,
+            buildNotification(
+                workoutType,
+                formatWorkoutData(heartRate, steps, calories, elapsedTime)
+            )
+        )
         return START_STICKY
     }
 
@@ -77,7 +83,12 @@ class WorkoutForegroundService : Service() {
             .build()
     }
 
-    private fun formatWorkoutData(heartRate: Int, steps: Int, calories: Int, elapsedTime: Int): String {
+    private fun formatWorkoutData(
+        heartRate: Int,
+        steps: Int,
+        calories: Int,
+        elapsedTime: Int
+    ): String {
         return "Heart Rate: $heartRate BPM\nSteps: $steps\nCalories: $calories\nTime: ${elapsedTime}s"
     }
 }

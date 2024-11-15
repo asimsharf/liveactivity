@@ -9,7 +9,12 @@ import kotlin.apply
 import kotlin.jvm.java
 
 object PollServiceHelper {
-    fun startPollService(context: Context, question: String, options: List<String>, votes: List<Int>) {
+    fun startPollService(
+        context: Context,
+        question: String,
+        options: List<String>,
+        votes: List<Int>
+    ) {
         val serviceIntent = Intent(context, PollForegroundService::class.java).apply {
             putExtra("question", question)
             putStringArrayListExtra("options", ArrayList(options))
@@ -22,7 +27,12 @@ object PollServiceHelper {
         }
     }
 
-    fun updatePollService(context: Context, question: String, options: List<String>, votes: List<Int>) {
+    fun updatePollService(
+        context: Context,
+        question: String,
+        options: List<String>,
+        votes: List<Int>
+    ) {
         val serviceIntent = Intent(context, PollForegroundService::class.java).apply {
             putExtra("question", question)
             putStringArrayListExtra("options", ArrayList(options))

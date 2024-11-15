@@ -8,7 +8,14 @@ import kotlin.apply
 import kotlin.jvm.java
 
 object WorkoutServiceHelper {
-    fun startWorkoutService(context: Context, workoutType: String, heartRate: Int, steps: Int, calories: Int, elapsedTime: Int) {
+    fun startWorkoutService(
+        context: Context,
+        workoutType: String,
+        heartRate: Int,
+        steps: Int,
+        calories: Int,
+        elapsedTime: Int
+    ) {
         val serviceIntent = Intent(context, WorkoutForegroundService::class.java).apply {
             putExtra("workoutType", workoutType)
             putExtra("heartRate", heartRate)
@@ -23,7 +30,14 @@ object WorkoutServiceHelper {
         }
     }
 
-    fun updateWorkoutService(context: Context, workoutType: String, heartRate: Int, steps: Int, calories: Int, elapsedTime: Int) {
+    fun updateWorkoutService(
+        context: Context,
+        workoutType: String,
+        heartRate: Int,
+        steps: Int,
+        calories: Int,
+        elapsedTime: Int
+    ) {
         val serviceIntent = Intent(context, WorkoutForegroundService::class.java).apply {
             putExtra("workoutType", workoutType)
             putExtra("heartRate", heartRate)

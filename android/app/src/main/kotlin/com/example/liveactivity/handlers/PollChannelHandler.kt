@@ -21,6 +21,7 @@ class PollChannelHandler(private val context: Context) {
                     PollServiceHelper.startPollService(context, question, options, votes)
                     result.success("Poll started")
                 }
+
                 "updateService" -> {
                     val question = call.argument<String>("question") ?: ""
                     val options = call.argument<List<String>>("options") ?: listOf()
@@ -28,10 +29,12 @@ class PollChannelHandler(private val context: Context) {
                     PollServiceHelper.updatePollService(context, question, options, votes)
                     result.success("Poll updated")
                 }
+
                 "stopService" -> {
                     PollServiceHelper.stopPollService(context)
                     result.success("Poll stopped")
                 }
+
                 else -> result.notImplemented()
             }
         }

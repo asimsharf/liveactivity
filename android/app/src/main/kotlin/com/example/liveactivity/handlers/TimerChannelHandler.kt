@@ -11,7 +11,7 @@ class TimerChannelHandler(private val context: Context) {
     }
 
     fun setUpChannel(dartExecutor: DartExecutor) {
-        val  channel = MethodChannel(dartExecutor.binaryMessenger, CHANNEL_NAME)
+        val channel = MethodChannel(dartExecutor.binaryMessenger, CHANNEL_NAME)
         channel.setMethodCallHandler { call, result ->
             when (call.method) {
                 "startTimer" -> {
@@ -19,10 +19,12 @@ class TimerChannelHandler(private val context: Context) {
                     TimerServiceHelper.startTimerService(context, duration)
                     result.success("Timer started")
                 }
+
                 "stopTimer" -> {
                     TimerServiceHelper.stopTimerService(context)
                     result.success("Timer stopped")
                 }
+
                 else -> result.notImplemented()
             }
         }

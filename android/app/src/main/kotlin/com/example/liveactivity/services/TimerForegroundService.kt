@@ -1,15 +1,12 @@
-// TimerForegroundService.kt
 package com.example.liveactivity.services
 
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
-import android.content.Context
 import android.content.Intent
 import android.os.CountDownTimer
 import android.os.IBinder
-import android.os.SystemClock
 import androidx.core.app.NotificationCompat
 import com.example.liveactivity.R
 
@@ -32,6 +29,7 @@ class TimerForegroundService : Service() {
                 startForegroundService()
                 startTimer()
             }
+
             ACTION_STOP_TIMER -> {
                 stopTimer()
                 stopSelf()
