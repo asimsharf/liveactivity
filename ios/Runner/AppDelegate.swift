@@ -3,7 +3,7 @@ import UIKit
 import UserNotifications
 
 @main
-@objc class AppDelegate: FlutterAppDelegate, UNUserNotificationCenterDelegate {
+@objc class AppDelegate: FlutterAppDelegate {
     
     override func application(
         _ application: UIApplication,
@@ -45,17 +45,17 @@ import UserNotifications
     }
     
     // Handle notifications when the app is in the foreground
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    override func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                         willPresent notification: UNNotification,
+                                         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // Display the notification with sound, alert, and badge while in the foreground
         completionHandler([.alert, .badge, .sound])
     }
     
     // Handle notification responses (optional)
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
+    override func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                         didReceive response: UNNotificationResponse,
+                                         withCompletionHandler completionHandler: @escaping () -> Void) {
         // Process user interactions with notifications here if you add custom actions
         if response.notification.request.content.categoryIdentifier == "pollUpdateCategory" {
             print("User interacted with a poll update notification.")

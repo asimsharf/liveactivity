@@ -25,6 +25,7 @@
 		C64249EA2CE73AA500FA36CB /* TimerAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249E92CE73AA400FA36CB /* TimerAttributes.swift */; };
 		C64249F62CE73BFC00FA36CB /* TimerActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249F52CE73BFB00FA36CB /* TimerActivityService.swift */; };
 		C6424A052CE741E400FA36CB /* TimerChannelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6424A042CE741E300FA36CB /* TimerChannelHandler.swift */; };
+		C65A21CD2CE87C8B00C70F27 /* PollAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A21CC2CE87C8900C70F27 /* PollAttributes.swift */; };
 		C7171C52A3228F9A9CD1AE9F /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E166AEE8D29A6F80B7AB65 /* Pods_RunnerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +75,6 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C64249DB2CE727EF00FA36CB /* PollAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAttributes.swift; sourceTree = "<group>"; };
 		C64249DD2CE7280300FA36CB /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		C64249DF2CE7281300FA36CB /* PollActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollActivityService.swift; sourceTree = "<group>"; };
 		C64249E12CE7287900FA36CB /* WorkoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAttributes.swift; sourceTree = "<group>"; };
@@ -84,6 +84,7 @@
 		C64249E92CE73AA400FA36CB /* TimerAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerAttributes.swift; sourceTree = "<group>"; };
 		C64249F52CE73BFB00FA36CB /* TimerActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerActivityService.swift; sourceTree = "<group>"; };
 		C6424A042CE741E300FA36CB /* TimerChannelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerChannelHandler.swift; sourceTree = "<group>"; };
+		C65A21CC2CE87C8900C70F27 /* PollAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAttributes.swift; sourceTree = "<group>"; };
 		E706AD194951B01C94768BC6 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0D3E5B9F764D98911F9F396 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -183,8 +184,8 @@
 		C64249F92CE73ED600FA36CB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C65A21CC2CE87C8900C70F27 /* PollAttributes.swift */,
 				C64249E12CE7287900FA36CB /* WorkoutAttributes.swift */,
-				C64249DB2CE727EF00FA36CB /* PollAttributes.swift */,
 				C64249E92CE73AA400FA36CB /* TimerAttributes.swift */,
 			);
 			path = Models;
@@ -277,7 +278,6 @@
 				TargetAttributes = {
 					331C8080294A63A400263BE5 = {
 						CreatedOnToolsVersion = 14.0;
-						TestTargetID = 97C146ED1CF9000F007C117D;
 					};
 					97C146ED1CF9000F007C117D = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -456,6 +456,7 @@
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				C64249E22CE7287A00FA36CB /* WorkoutAttributes.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				C65A21CD2CE87C8B00C70F27 /* PollAttributes.swift in Sources */,
 				C64249E02CE7281500FA36CB /* PollActivityService.swift in Sources */,
 				C64249F62CE73BFC00FA36CB /* TimerActivityService.swift in Sources */,
 				C64249E42CE7288A00FA36CB /* WorkoutActivityService.swift in Sources */,
@@ -500,6 +501,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -580,9 +582,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E706AD194951B01C94768BC6 /* Pods-RunnerTests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7V2LXKATRK;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.liveactivity.RunnerTests;
@@ -590,7 +592,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
 			name = Debug;
 		};
@@ -598,15 +599,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9192CE4C29FD996C6F31D279 /* Pods-RunnerTests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7V2LXKATRK;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.liveactivity.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
 			name = Release;
 		};
@@ -614,15 +614,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13C968E1B59BD5F062938DC0 /* Pods-RunnerTests.profile.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7V2LXKATRK;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.liveactivity.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
 			};
 			name = Profile;
 		};
@@ -631,6 +630,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -689,6 +689,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

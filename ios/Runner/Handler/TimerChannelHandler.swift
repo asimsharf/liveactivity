@@ -17,13 +17,13 @@ class TimerChannelHandler {
         
         channel.setMethodCallHandler { call, result in
             switch call.method {
-            case "startCountdownTimer":
+            case "startTimer":
                 if let args = call.arguments as? [String: Any],
                    let duration = args["duration"] as? Double {
                     TimerActivityService.shared.startCountdownTimer(durationInSeconds: duration)
                     result("Countdown timer started")
                 }
-            case "stopAllActivities":
+            case "stopTimer":
                 TimerActivityService.shared.stopAllActivities()
                 result("All timers stopped")
             default:
