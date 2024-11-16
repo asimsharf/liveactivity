@@ -1,15 +1,18 @@
-//
-//  NotificationService.swift
-//  Runner
-//
-//  Created by asimsharf on 15/11/2024.
-//
+// NotificationService.swift
+import UIKit
 import UserNotifications
 
-class NotificationService {
+class NotificationService: NSObject, UNUserNotificationCenterDelegate {
+    
+    static let shared = NotificationService()
+    
+    private override init() {
+        super.init()
+        UNUserNotificationCenter.current().delegate = self
+    }
     
     // Request notification permissions
-    static func requestNotificationPermissions() {
+    func requestNotificationPermissions() {
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options) { granted, error in
             if granted {
@@ -20,38 +23,36 @@ class NotificationService {
         }
     }
     
-    // Create a formatted notification content
-    static func createNotificationContent(title: String, body: String) -> UNMutableNotificationContent {
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
-        content.sound = .default
-        content.categoryIdentifier = "pollUpdateCategory"
+    // Set up custom notification categories
+    func setUpNotificationCategories() {
+        let pollUpdateCategory = UNNotificationCategory(
+            identifier: "pollUpdateCategory",
+            actions: [], // Add any custom actions here if needed
+            intentIdentifiers: [],
+            options: []
+        )
         
-        if #available(iOS 15.0, *) {
-            content.interruptionLevel = .timeSensitive
-            content.relevanceScore = 1.0
-        }
-        
-        return content
+        // Register the categories with UNUserNotificationCenter
+        UNUserNotificationCenter.current().setNotificationCategories([pollUpdateCategory])
     }
     
-    // Display the notification with optional delay
-    static func displayNotification(content: UNMutableNotificationContent, delayInSeconds: TimeInterval = 0) {
-        let trigger: UNNotificationTrigger? = delayInSeconds > 0 ? UNTimeIntervalNotificationTrigger(timeInterval: delayInSeconds, repeats: false) : nil
-        let request = UNNotificationRequest(identifier: "pollUpdate", content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Failed to display notification: \(error)")
-            } else {
-                print("Notification displayed successfully.")
-            }
-        }
+    // Handle notifications when the app is in the foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Display the notification with sound, alert, and badge while in the foreground
+        completionHandler([.alert, .badge, .sound])
     }
     
-    // Format the options and votes for display in the notification body
-    static func formatOptions(options: [String], votes: [Int]) -> String {
-        return zip(options, votes).map { "\($0): \($1) votes" }.joined(separator: "\n")
+    // Handle notification responses (optional)
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        // Process user interactions with notifications here if you add custom actions
+        if response.notification.request.content.categoryIdentifier == "pollUpdateCategory" {
+            print("User interacted with a poll update notification.")
+        }
+        
+        completionHandler()
     }
 }

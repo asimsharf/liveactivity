@@ -17,3 +17,4 @@ struct PollAttributes: ActivityAttributes {
     
     var pollName: String
 }
+

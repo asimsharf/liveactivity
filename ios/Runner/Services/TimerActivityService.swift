@@ -25,7 +25,9 @@ class TimerActivityService {
                 let activity = try Activity<TimerAttributes>.request(
                     attributes: attributes,
                     contentState: initialContentState,
-                    pushType: nil
+                    pushType: nil,
+                    content: ActivityContent(state: initialContentState, staleDate: endTime.addingTimeInterval(60))
+
                 )
                 print("Started countdown timer Live Activity with ID: \(activity.id)")
             } catch {

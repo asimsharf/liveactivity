@@ -26,6 +26,9 @@
 		C64249F62CE73BFC00FA36CB /* TimerActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249F52CE73BFB00FA36CB /* TimerActivityService.swift */; };
 		C6424A052CE741E400FA36CB /* TimerChannelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6424A042CE741E300FA36CB /* TimerChannelHandler.swift */; };
 		C65A21CD2CE87C8B00C70F27 /* PollAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A21CC2CE87C8900C70F27 /* PollAttributes.swift */; };
+		C65A21D22CE883B900C70F27 /* TimerActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A21D12CE883B800C70F27 /* TimerActivityView.swift */; };
+		C65A21D42CE883CD00C70F27 /* WorkoutActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A21D32CE883CC00C70F27 /* WorkoutActivityView.swift */; };
+		C65A21D62CE883E200C70F27 /* PollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A21D52CE883E200C70F27 /* PollActivityView.swift */; };
 		C7171C52A3228F9A9CD1AE9F /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E166AEE8D29A6F80B7AB65 /* Pods_RunnerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +88,9 @@
 		C64249F52CE73BFB00FA36CB /* TimerActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerActivityService.swift; sourceTree = "<group>"; };
 		C6424A042CE741E300FA36CB /* TimerChannelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerChannelHandler.swift; sourceTree = "<group>"; };
 		C65A21CC2CE87C8900C70F27 /* PollAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAttributes.swift; sourceTree = "<group>"; };
+		C65A21D12CE883B800C70F27 /* TimerActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerActivityView.swift; sourceTree = "<group>"; };
+		C65A21D32CE883CC00C70F27 /* WorkoutActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutActivityView.swift; sourceTree = "<group>"; };
+		C65A21D52CE883E200C70F27 /* PollActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollActivityView.swift; sourceTree = "<group>"; };
 		E706AD194951B01C94768BC6 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0D3E5B9F764D98911F9F396 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -166,6 +172,7 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				C65A21D02CE883B100C70F27 /* Views */,
 				C64249FB2CE73F0A00FA36CB /* Services */,
 				C64249FA2CE73EF700FA36CB /* Handler */,
 				C64249F92CE73ED600FA36CB /* Models */,
@@ -210,6 +217,16 @@
 				C64249DD2CE7280300FA36CB /* NotificationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		C65A21D02CE883B100C70F27 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C65A21D52CE883E200C70F27 /* PollActivityView.swift */,
+				C65A21D32CE883CC00C70F27 /* WorkoutActivityView.swift */,
+				C65A21D12CE883B800C70F27 /* TimerActivityView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F3D3E43327EB8FBD4FD4AB1A /* Frameworks */ = {
@@ -456,13 +473,16 @@
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				C64249E22CE7287A00FA36CB /* WorkoutAttributes.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				C65A21D62CE883E200C70F27 /* PollActivityView.swift in Sources */,
 				C65A21CD2CE87C8B00C70F27 /* PollAttributes.swift in Sources */,
 				C64249E02CE7281500FA36CB /* PollActivityService.swift in Sources */,
 				C64249F62CE73BFC00FA36CB /* TimerActivityService.swift in Sources */,
+				C65A21D22CE883B900C70F27 /* TimerActivityView.swift in Sources */,
 				C64249E42CE7288A00FA36CB /* WorkoutActivityService.swift in Sources */,
 				C6424A052CE741E400FA36CB /* TimerChannelHandler.swift in Sources */,
 				C64249E82CE729B500FA36CB /* PollChannelHandler.swift in Sources */,
 				C64249EA2CE73AA500FA36CB /* TimerAttributes.swift in Sources */,
+				C65A21D42CE883CD00C70F27 /* WorkoutActivityView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -59,5 +59,7 @@
 	</array>
     <key>NSSupportsLiveActivities</key>
     <true/>
+    <key>NSLiveActivityUsageDescription</key>
+    <string>This app uses Live Activities to display live information on your lock screen.</string>
 </dict>
 </plist>
